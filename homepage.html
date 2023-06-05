@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LearnAI: Movie Classifier Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Banner -->
+  <div class="banner">
+    <img src="images/banner.jpg" alt="Movie Banner">
+  </div>
+
+  <!-- Introduction Section -->
+  <section id="introduction">
+    <p>Welcome to our website! This is a platform where you can input text, upload files, and perform various operations. Feel free to explore and make the most of the features.</p>
+  </section>
+
+  <h1>Input Movie Details</h1>
+
+  <!-- Text Input Form: Movie Title -->
+  <form id="textInputForm">
+    <label for="inputText">Enter the movie title:</label>
+    <input type="text" id="inputText" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Text Input Form: Movie Release -->
+  <form id="textInputForm">
+    <label for="inputText">Enter the release year:</label>
+    <input type="text" id="inputText" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- File Upload Section -->
+  <h1>Movie Poster Upload</h1>
+  <form id="fileUploadForm">
+    <label for="inputText">Attach a file below</label>
+    <input type="file" id="fileInput">
+    <button type="submit">Upload</button>
+  </form>
+
+  <!-- Output Display -->
+  <div id="outputText"></div>
+
+  <!-- About Us Section -->
+  <section id="aboutUs">
+    <h2>About Us</h2>
+    <p>*Add about us info here.*</p>
+  </section>
+
+  <script>
+    const textInputForm = document.getElementById('textInputForm');
+    const fileUploadForm = document.getElementById('fileUploadForm');
+    const output = document.getElementById('outputText');
+
+    textInputForm.addEventListener('submit', function(event) {
+      event.preventDefault(); 
+
+      const input = document.getElementById('inputText').value;
+
+      const processedText = processInput(input);
+
+      output.innerHTML = '<p>Your processed text: ' + processedText + '</p>';
+
+      textInputForm.reset();
+    });
+
+    fileUploadForm.addEventListener('submit', function(event) {
+      event.preventDefault(); 
+
+      const fileInput = document.getElementById('fileInput');
+
+      if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+
+        processFile(file);
+      } else {
+        alert('Please select a file.');
+      }
+
+      fileUploadForm.reset();
+    });
+
+    // Just an example of functionality -- will change it later once js is done.
+    function processInput(input) {
+      return input.toUpperCase();
+    }
+
+    // Just an example of functionality -- will change it later once js is done.
+    function processFile(file) {
+      console.log('File name:', file.name);
+      console.log('File size:', file.size);
+    }
+  </script>
+</body>
+</html>
