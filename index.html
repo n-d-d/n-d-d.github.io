@@ -1,96 +1,172 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LearnAI: Movie Classifier Project</title>
-  <link rel="stylesheet" href="style.css">
+  <title>LearnAI: Movie Genre Predictor</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <!-- Banner -->
   <div class="banner">
-    <img src="images/banner.jpg" alt="Movie Banner">
+    <img src="images/top_banner.png" alt="Banner Image">
+    <a href="#AboutUs" class="banner-button">Click for more info</a>
+    <div class="banner-overlay">
+      <div class="welcome-text">
+        <h2>Welcome!</h2>
+        <p>Here you can use a machine learning model to predict the genre of a movie based on its poster, title, and/or date of release.</p>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+  <!-- Three-column Layout -->
+  <div class="three-column-layout">
+
+    <!-- Input Movie Title -->
+    <div class="column">
+      <h2>Title</h2>
+      <form id="title_input">
+        <input type="text" id="inputText" placeholder="Enter movie title..." required>
+      </form>
+    </div>
+
+    <!-- Input Movie Date -->
+    <div class="column">
+      <h2>Date</h2>
+      <form id="date_input">
+        <input type="text" id="inputText" placeholder="Enter movie date..." required>
+        <label>or</label>
+        <div class="text-date-input">
+          <input type="text" list="dateDropdown" placeholder="Select movie decade..." />
+          <datalist id="dateDropdown">
+            <option value="1990-1999"></option>
+            <option value="2000-2009"></option>
+            <option value="2010-2019"></option>
+            <option value="2020-present"></option>
+          </datalist>
+        </div>
+      </form>
+    </div>
+
+  <!-- Movie Poster Upload -->
+  <div class="column">
+    <h2>Poster</h2>
+    <form id="fileUploadForm">
+      <input type="file" id="fileInput">
+      <button type="submit">Upload</button>
+    </form>
   </div>
 
-  <!-- Introduction Section -->
-  <section id="introduction">
-    <p>*Add a welcome message.*</p>
-  </section>
+  </div>
 
-  <h1>Input Movie Details</h1>
 
-  <!-- Text Input Form: Movie Title -->
-  <form id="textInputForm">
-    <label for="inputText">Enter the movie title:</label>
-    <input type="text" id="inputText" required>
-    <button type="submit">Submit</button>
-  </form>
 
-  <!-- Text Input Form: Movie Release -->
-  <form id="textInputForm">
-    <label for="inputText">Enter the release year:</label>
-    <input type="text" id="inputText" required>
-    <button type="submit">Submit</button>
-  </form>
+<!-- Our Model Section -->
+<section id="OurModel">
+  <div class="model-textbox">
+    <h2>Our Model</h2>
+    <p>You can choose between our available models and run one or multiple of those with valid input.</p>
+  </div>
+</section>
 
-  <!-- File Upload Section -->
-  <h1>Movie Poster Upload</h1>
-  <form id="fileUploadForm">
-    <label for="inputText">Attach a file below</label>
-    <input type="file" id="fileInput">
-    <button type="submit">Upload</button>
-  </form>
 
-  <!-- Output Display -->
-  <div id="outputText"></div>
+<!-- Two-column Layout -- Part 1 -->
+<div class="two-column-layout">
+  <!-- Left Column 1 -->
+  <div class="column">
+    <h2>Original Poster Model</h2>
+    <label for="originalPosterCheckbox">
+      <input type="checkbox" id="originalPosterCheckbox"> Poster
+    </label>
+    <a href="#Results"><button type="button">Run</button></a>
+  </div>
+  <!-- Right Column 2 -->
+  <div class="column">
+    <h2>Ensemble Model 1.0</h2>
+    <label for="ensembleCheckbox1">
+      <input type="checkbox" id="ensembleCheckbox1"> Title
+    </label>
+    <label for="ensembleCheckbox2">
+      <input type="checkbox" id="ensembleCheckbox2"> Date
+    </label>
+    <label for="ensembleCheckbox3">
+      <input type="checkbox" id="ensembleCheckbox3"> Poster
+    </label>
+    <a href="#Results"><button type="button">Run</button></a>
+  </div>
+</div>
+
+
+
+  <!-- Two-column Layout -- Part 2 -->
+<div class="two-column-layout">
+  <!-- Left Column 3 -->
+  <div class="column">
+    <h2>Title to Genre</h2>
+    <label for="originalPosterCheckbox">
+      <input type="checkbox" id="originalPosterCheckbox"> Title
+    </label>
+    <a href="#Results"><button type="button">Run</button></a>
+  </div>
+
+  <!-- Right Column 4 -->
+  <div class="column">
+    <h2>Title & Date Genre Predictor</h2>
+    <label for="ensembleCheckbox1">
+      <input type="checkbox" id="ensembleCheckbox1"> Title
+    </label>
+    <label for="ensembleCheckbox2">
+      <input type="checkbox" id="ensembleCheckbox2"> Date
+    </label>
+    <a href="#Results"><button type="button">Run</button></a>
+  </div>
+</div>
+
+
+  
+<!-- Results Section -->
+<section id="Results">
+  <h2>Results</h2>
+  <div class="results-textbox">
+    <p>*Display results here*</p>
+  </div>
+
+  <div class="download-button">
+    <button class="download-button">Download Results</button>
+  </div>
+
+  <div class="rating-section">
+    <h3>Please rate the results:</h3>
+
+    <form>
+      <div class="rating-options">
+        <input type="radio" id="good" name="rating" value="good">
+        <label for="good">Good</label>
+
+        <input type="radio" id="poor" name="rating" value="poor">
+        <label for="poor">Poor</label>
+      </div>
+
+      <div class="comment-section">
+        <label for="comment">Add a comment:</label>
+        <input type="text" id="comment" placeholder="Type here">
+      </div>
+
+      <button type="submit">Submit Rating</button>
+    </form>
+  </div>
+</section>
+
+
+
+
 
   <!-- About Us Section -->
-  <section id="aboutUs">
+  <section id="AboutUs">
     <h2>About Us</h2>
-    <p>*Add about us info here.*</p>
+    <p>*text to explain our project, provide contact info and give acknowledgements.*</p>
   </section>
 
-  <script>
-    const textInputForm = document.getElementById('textInputForm');
-    const fileUploadForm = document.getElementById('fileUploadForm');
-    const output = document.getElementById('outputText');
-
-    textInputForm.addEventListener('submit', function(event) {
-      event.preventDefault(); 
-
-      const input = document.getElementById('inputText').value;
-
-      const processedText = processInput(input);
-
-      output.innerHTML = '<p>Your processed text: ' + processedText + '</p>';
-
-      textInputForm.reset();
-    });
-
-    fileUploadForm.addEventListener('submit', function(event) {
-      event.preventDefault(); 
-
-      const fileInput = document.getElementById('fileInput');
-
-      if (fileInput.files.length > 0) {
-        const file = fileInput.files[0];
-
-        processFile(file);
-      } else {
-        alert('Please select a file.');
-      }
-
-      fileUploadForm.reset();
-    });
-
-    // Just an example of functionality -- will change it later once js is done.
-    function processInput(input) {
-      return input.toUpperCase();
-    }
-
-    // Just an example of functionality -- will change it later once js is done.
-    function processFile(file) {
-      console.log('File name:', file.name);
-      console.log('File size:', file.size);
-    }
-  </script>
 </body>
 </html>
