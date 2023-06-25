@@ -7,6 +7,21 @@ body {
     color: #336699;
   }
   
+  
+/* Inputs -- text boxes */
+
+  input[type="text"] {
+    border: 2px solid #336699; 
+    border-radius: 5px;
+    padding: 8px;
+  }
+  
+/* Inputs -- radio button select */
+
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+
   button {
     background-color: #ffcc66; 
     color: #336699; 
@@ -16,19 +31,13 @@ body {
 
   }
   
-  input[type="text"] {
-    border: 2px solid #336699; 
-    border-radius: 5px;
-    padding: 8px;
-  }
-  
-  input[type="radio"] {
-    margin-right: 5px;
-  }
-  
+/* Buttons -- download results */
+
   .DownloadButton input[type="text"] {
     width: 100%;
   }
+
+/* Buttons -- submit feedback */
   
   .DownloadButton button[type="submit"] {
     margin-top: 10px;
@@ -57,12 +66,7 @@ body {
     object-fit: cover;
   }
   
-  
-  .welcome-text {
-    max-width: 500px;
-    text-align: center;
-    padding: 20px;
-  }
+/* Banner button */
 
   .banner-button {
     position: absolute;
@@ -73,7 +77,7 @@ body {
     padding: 8px 20px;
     border-radius: 5px;
     text-decoration: none;
-    color: #000000;
+    color: #336699;
     font-weight: bold;
     transition: background-color 0.3s ease;
     font-size: 12px;
@@ -82,20 +86,25 @@ body {
   .banner-button:hover {
     background-color: #ffcc66;
   }
+
+/* Welcome text */
+
+  .welcome-text {
+    text-align: center;
+    padding: 20px;
+    width: 700px;
+  }
   
+/* Three columns */
+
   .three-column-layout {
     display: flex;
     justify-content: center;
-    margin-top: 20px; 
   }
   
   .column {
     flex: 1;
-    margin: 0 150px; 
-  }
-  
-  .column h2 {
-    margin-top: 100;
+    margin: 50px 150px; 
   }
   
   @media (max-width: 768px) {
@@ -105,13 +114,8 @@ body {
     
     .column {
       flex-basis: 100%;
-      margin: 10px 0;
+      margin: 100px 0;
     }
-  }
-
-  
-  .text-date_input {
-    margin-top: 10px;
   }
 
 
